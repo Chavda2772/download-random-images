@@ -1,45 +1,137 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    display: flex;
-    margin: 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-h2 {
-    margin-bottom: 5vh;
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 95vw;
 }
 
-img {
-    height: 50vh;
-    margin-bottom: 6vh;
-    transition: 0.5s ease-in;
+.container .card {
+  position: relative;
+  top: 0;
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 5px 202px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.btn {
-    font-size: 26px;
-    border-radius: 10px;
-    padding: 10px 30px;
-    cursor: pointer;
-    background-color: rgb(0, 89, 100);
-    color: white;
-    border: none;
-    margin-bottom: 6vh;
-    transition: .4s ease-in;
+.container .card .image {
+  position: relative;
+  transition: 0.4s top ease-in-out;
+  background: url("https://source.unsplash.com/random/1920x1080");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
 }
 
-.btn:hover {
-    background-color: rgb(12, 124, 77);
-    box-shadow: 2px 7px 5px rgba(0, 0, 0, 0.5);
+.container .card:hover {
+  transform: scale(1.1);
 }
 
-.btn:focus {
-    outline: none;
+.container .card .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: right;
+  transition: all ease-in-out 0.2s;
+}
+
+.container .card:hover .overlay {
+  background-color: black;
+  opacity: 0.7;
+}
+
+.preview-box {
+  position: fixed;
+  background-color: green;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.preview-box .details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-box .details .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+}
+
+.preview-box .details .title .current-img,
+.preview-box .details .title .total-img {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.preview-box .details .title .current-img {
+  font-weight: bold;
+}
+
+.preview-box .details .close {
+  padding-right: 0.5rem;
+  cursor: pointer;
+}
+
+.preview-box .image-box {
+  display: flex;
+  width: 100%;
+  position: relative;
+  background-color: purple;
+}
+
+.preview-box .image-box .slider {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%);
+}
+.preview-box .image-box .slider.prev i {
+  position: absolute;
+  background-color: greenyellow;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  left: 0;
+}
+
+.preview-box .image-box .slider.next i {
+  position: absolute;
+  right: 0;
+}
+
+.preview-box .image-box .slider i {
+  font-size: 3rem;
+}
+
+.preview-box .image-box img {
+  width: 80%;
 }
